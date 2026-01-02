@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphRAG - Perplexity-style Search</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Query Bar (Top Panel) -->
+        <header class="query-bar">
+            <div class="logo">GraphRAG</div>
+            <div class="search-container">
+                <input type="text" id="queryInput" placeholder="Ask anything..." autocomplete="off">
+                <button id="searchBtn">Search</button>
+            </div>
+            <div class="session-info">
+                <span id="sessionStatus">Ready</span>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Streaming Results Panel (Left/Center) -->
+            <div class="results-panel">
+                <div class="results-header">
+                    <h2>Live Results</h2>
+                    <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+                        <div class="spinner"></div>
+                        <span>Searching...</span>
+                    </div>
+                </div>
+                <div class="results-container" id="resultsContainer">
+                    <div class="initial-message">
+                        <p>Enter a query above to see live streaming results and graph visualization.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graph Panel (Right) -->
+            <div class="graph-panel">
+                <div class="graph-header">
+                    <h2>Knowledge Graph</h2>
+                </div>
+                <div id="graphContainer" class="graph-container">
+                    <div id="graphLoading" class="graph-loading">Loading graph visualization...</div>
+                    <div id="graphError" class="graph-error" style="display: none;">Graph visualization failed to load. Please check console for errors.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three-forcegraph@1.41.1/dist/three-forcegraph.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
